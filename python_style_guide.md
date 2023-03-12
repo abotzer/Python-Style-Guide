@@ -3,6 +3,13 @@ This is a brief summarization of general programming principles and PEP8 Python 
 
 This document was originally written for data scientists without formal programming education. As an R&D manager I wanted each teammate to have a basic programming intuition combined with Python best practices. Altough there are numerous resources about SOLID and pragmattic programming as well as comprehensive guideline for Python specficially (see https://peps.python.org/pep-0008/), I wanted to create a unified concise practical guide.
 
+## Table of Contents
+1. [1. Introduction](#1. Introduction)
+2. [2. Programming Constitution](#2. Programming Constitution)
+3. [3. Python Code Conventions](#3. Python Code Conventions)
+4. [4. Sources](#4. Sources)
+5. [5. Automatic Code Conventions Checkers](#5. Automatic Code Conventions Checkers)
+
 ## 1. Introduction
 This document is divided into two sub-guides:
 
@@ -367,7 +374,7 @@ def make_complex(x, y):
 * https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 * https://www.datacamp.com/community/tutorials/pep8-tutorial-python-code
 
-## 5. Automatic code conventions checkers
+## 5. Automatic Code Conventions Checkers
 
 * https://pypi.org/project/pep8/ - python style guide checker
 * https://pypi.org/project/autopep8/ - autopep8 automatically formats Python code to conform to the PEP 8 style guide.
