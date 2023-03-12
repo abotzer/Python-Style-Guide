@@ -1,4 +1,4 @@
-# Python-Style-Guide
+# Python Style Guide
 This is a brief summarization of general programming principles and PEP8 Python specific principles.
 
 This document was originally written for data scientists without formal programming education. As an R&D manager I wanted each teammate to have a basic programming intuition combined with Python best practices. Altough there are numerous resources about SOLID and pragmattic programming as well as comprehensive guideline for Python specficially (see https://peps.python.org/pep-0008/), I wanted to create a unified concise practical guide.
