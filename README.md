@@ -4,5 +4,6 @@ This repo includes several notes I wrote over the years as an R&D manager in NCR
 
 ## Last Notes:
 
-* [Python Style Guide](https://github.com/abotzer/notes/blob/main/python_style_guide.md)
- more to come
+* [Python Style Guide](https://github.com/abotzer/notes/blob/main/Programming/python_style_guide.md)
+
+more to come!
