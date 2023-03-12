@@ -13,9 +13,9 @@ This document was originally written for data scientists without formal programm
 ## 1. Introduction <a name="introduction"></a>
 This document is divided into two sub-guides:
 
-Programming constitution - contains thumb rules that actually affect program efficiency, correctness, or reusability. This part is also divided into two: the first one is unilingual, describing rules and tips which are relevant to any programming language, while the other part describes python specific rules and tips.
+1. Programming constitution - contains thumb rules that actually affect program efficiency, correctness, or reusability. This part is also divided into two: the first one is unilingual, describing rules and tips which are relevant to any programming language, while the other part describes python specific rules and tips.
 
-Python programming conventions - conventions that don't affect program correctness explicitly, but rather increase readability. This part is completely pythonic.
+2. Python programming conventions - conventions that don't affect program correctness explicitly, but rather increase readability. This part is completely pythonic.
 
 At the bottom of this document, there are several open-source libraries that automatically check python scripts according to all specified rules.
 
@@ -27,27 +27,24 @@ Programming books are probably the longest books ever written. There are so many
 #### 2.1.1. The SOLID principles
 The SOLID principles were originally written for object-oriented programming. However, they make great rules to follow in every large-scale development. Those are relatively high-level tips:
 
-**Single Responsibility Principle (SRP)**
+**Single Responsibility Principle (SRP)** - A software entity (whether it’s a module/class/method/code bulk) should have one and only a single responsibility. Why? 
 
-A software entity (whether it’s a module/class/method/code bulk) should have one and only a single responsibility. Why? Coupling two responsibilities together won’t allow us to use only one of them. Breaking this rule will probably make the code messy. It’s harder to debug code that does multiple things.
+* Coupling two responsibilities won’t allow us to use only one of them. 
+* Breaking this rule will probably make the code messy. It’s harder to debug code that does multiple things.
 
-**Open/Closed Principle**
+**Open/Closed Principle** - A software entity (whether it’s a module/class/method/code bulk) should be open for extensions but closed for modification. This rule has two perspectives:
 
-A software entity (whether it’s a module/class/method/code bulk) should be open for extensions but closed for modification. This rule has two perspectives:
+* First, when you are writing an entity (again, whether it’s …) - be aware of any use it should satisfy and write it accordingly. Assume that no modifications shall be done to this entity after you’re done. It’s not true usually but it's a good practice.
 
-First, when you are writing an entity (again, whether it’s …) - be aware of any use it should satisfy and write it accordingly. Assume that no modifications shall be done to this entity after you’re done. It’s not true usually but it's a good practice.
+* Second, write your entity as modular as you can. Assume that you aren’t aware of all possible uses of this entity. Therefore, you should design it as generic as possible. For instance, you need some function that for a given ID number, returns the number of times it occurs in the database over the past month. Then, you should write this function more generically, taking a “time range” as an argument and optionally a list of ID numbers.
 
-Second, write your entity as modular as you can. Assume that you aren’t aware of all possible uses of this entity. Therefore, you should design it as generic as possible. For instance, you need some function that for a given ID number, returns the number of times it occurs in the database over the past month. Then, you should write this function more generically, taking a “time range” as an argument and optionally a list of ID numbers.
+**Liskov Substitution Principle** - Objects in a program should be replicable with instances of their subtypes without altering the program.
 
-**Liskov Substitution Principle**
+* Each time you create an object or do some complicated operation in your code, ask yourself if there’s a chance that in the future these parts of code will be replaced. If so, it should be implemented as an interface with some subclass that satisfies your current need. This rule holds for I/O from DB, building features, training models, computing metrics, and for much more low-level details that you may find.
 
-Objects in a program should be replicable with instances of their subtypes without altering the program.
+**Interfaces Segregation Principle** - Client-specific interfaces are better than one general-purpose interface. 
 
-Each time you create an object or do some complicated operation in your code, ask yourself if there’s a chance that in the future these parts of code will be replaced. If so, it should be implemented as an interface with some subclass that satisfies your current need. This rule holds for I/O from DB, building features, training models, computing metrics, and for much more low-level details that you may find.
-
-**Interfaces Segregation Principle**
-
-Client-specific interfaces are better than one general-purpose interface. It can be tempting to implement an almighty interface that satisfies all of your project needs. However, it will probably make it coupled to your project. Each other code that will use it, will probably just ignore most methods. It is preferable to build several modular interfaces.
+* It can be tempting to implement an almighty interface that satisfies all of your project needs. However, it will probably make it coupled to your project. Each other code that will use it, will probably just ignore most methods. It is preferable to build several modular interfaces.
 
 **Dependency Inversion Principle**
 
