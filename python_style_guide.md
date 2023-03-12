@@ -65,7 +65,7 @@ Minimize the number of modules that need to be changed if a particular functiona
 * Avoid global data. Instead, each module should get its context as an input.
 * Write your code top-down! - It has so many advantages. Mainly, your high-level code raises requirements for your low-level code. Development becomes more fluent.
 
-**Debug Like a Pro - How to Debug?**
+**Debug Like a Pro** - How to Debug?
 
 * Step 1: Does the code compile?
 * Step 2: Does the code pass the existing tests? If not, take the failed test and go to step 5.
@@ -85,17 +85,15 @@ Inject your module’s dependencies into it rather than creating them inside the
 
 Put anything you can in the configuration file. It’s a great habit and it’ll make it easier to change your code behavior later on.
 
-**The law of diameter**
+**The Law of Diameter** - Any method of an object should call only methods belonging to:
 
-Any method of an object should call only methods belonging to:
 * The object.
 * The parameters of the method.
 * Any object the method created.
 * Attributes of the object.
 
-**Avoid Temporal Coupling**
+**Avoid Temporal Coupling** - Temporal coupling is not an explicit coupling. It occurs when method A must be called before method B although they aren’t programmatically connected. How you avoid this?
 
-Temporal coupling is not an explicit coupling. It occurs when method A must be called before method B although they aren’t programmatically connected. How you avoid this?
 * Make both methods private and create a public parent method that encapsulates their temporal relation.
 * As a thumb rule - make your code as concurrent as possible.
 
@@ -103,9 +101,8 @@ Temporal coupling is not an explicit coupling. It occurs when method A must be c
 
 It might be changed and hunt you back.
 
-**Write Unit Tests**
+**Write Unit Tests** - You should test your module on rejected values, boundary values, accepted values. Advantages:
 
-You should test your module on rejected values, boundary values, accepted values. Advantages:
 * It provides examples of how to use all your module functionality.
 * It enables refactoring without worrying about breaking code.
 
@@ -253,6 +250,8 @@ Minimize the amount of code in a try/except block. The larger the body of the tr
 
 ### 3.4. Naming conventions
 
+![image](https://user-images.githubusercontent.com/121048777/224520703-3fbe4594-faf3-476d-bdad-4ed03f2e64d5.png)
+
 As we can see, exceptions should follow the CapWords convention, but preferably with an “Error” suffix.
 
 ### 3.5. Imports
@@ -266,10 +265,20 @@ Imports should be grouped in the following order:
 
 Put a blank line between those groups of imports.
 
-In a different note, write: `from foo.bar.yourclass import YourClass` instead of: `import foo.bar.yourclass`. Also, avoid wildcards imports such as: 
+In a different note, write: 
+
+`from foo.bar.yourclass import YourClass` 
+
+instead of: 
+
+`import foo.bar.yourclass`
+
+Also, avoid wildcards imports such as: 
+
 `from <module> import *`
 
 Future imports should be placed first:
+
 `from __future__ import barry_as_FLUFL`
 
 ### 3.6. Indentations
@@ -289,8 +298,8 @@ The closing brace/bracket/parenthesis on multiline constructs should have a line
 
 ```
 my_list = [
- 	    1, 2, 3,
-	    4, 5, 6,
+	1, 2, 3,
+	4, 5, 6,
 	]
 ```
 
@@ -300,7 +309,7 @@ Prefer small and focused functions. We recognize that long functions are sometim
 
 You could find long and complicated functions when working with some code. Do not be intimidated by modifying existing code: if working with such function proves to be difficult, you find that errors are hard to debug, or you want to use a piece of it in several different contexts, consider breaking up the function into smaller and more manageable pieces.
 
-### 3.9. Line length
+### 3.9. Line Length
 
 Limit all lines to a maximum number of 79 characters. Limiting the required editor window width makes it possible to have several files open side-by-side, and works well when using code review tools that present the two versions in adjacent columns.
 
@@ -322,19 +331,21 @@ my_very_big_string = (
 )
 ```
 
-### 3.10. Line spacing
+### 3.10. Line Spacing
 
 Use it reasonably to separate between different logical parts of your code. Put blank lines between methods implementations, inside methods, or wherever you find it useful. However, if you find yourself putting blank lines within a method, you probably should extract those different code blocks to submethods.
 
 ### 3.11. Trailing Commas
 
 Use when the data structure is expected to be expanded. For example:
+
 ```
 FILES = [
   'Setup.cfg',
   'Tox.ini',
 ]
 ```
+
 It’s better to put each file path in a different line because then it’s easier to track it on the version control system.
 
 ### 3.12. String Formatting
@@ -345,7 +356,7 @@ Use `.format()` method instead, and give meaningful names to each replacement fi
 
 `_(' ... {foo} ... {bar} ...').format(foo='foo-value', bar='bar-value')`
 
-### 3.13. Explicit code
+### 3.13. Explicit Code
 
 Be explicit. Don’t make your code ambiguous.
 
