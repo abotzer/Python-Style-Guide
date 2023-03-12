@@ -27,11 +27,14 @@ Assignee: reviewed developer
 Assuming that you already know GIT and that you developed on your own branch and now you are finally ready to merge your work to the main branch. How do you do that?
 
 Step Zero: on PR you merge your work to the main working branch. However, to avoid merge conflicts on the main branch, you should first merge the working branch (say, develop) to your branch. That way, your branch gets updated with other new merges, and you can verify that tests still pass and that your work is valid. If there are conflicts they don’t affect the develop branch but only yours, and you can solve them peacefully. To do so you can run the following cmd/terminal commands:
+
+```
 > git checkout develop
 > git pull
 > git checkout feature/my_branch
 > git merge develop
 > git push
+```
 
 Before you keep going, re-check the code correctness steps (pulling develop might break some tests).
 
