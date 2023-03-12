@@ -4,13 +4,13 @@ This is a brief summarization of general programming principles and PEP8 Python 
 This document was originally written for data scientists without formal programming education. As an R&D manager I wanted each teammate to have a basic programming intuition combined with Python best practices. Altough there are numerous resources about SOLID and pragmattic programming as well as comprehensive guideline for Python specficially (see https://peps.python.org/pep-0008/), I wanted to create a unified concise practical guide.
 
 ## Table of Contents
-1. [1. Introduction](#1. Introduction)
-2. [2. Programming Constitution](#2. Programming Constitution)
-3. [3. Python Code Conventions](#3. Python Code Conventions)
-4. [4. Sources](#4. Sources)
-5. [5. Automatic Code Conventions Checkers](#5. Automatic Code Conventions Checkers)
+1. [Introduction](#introduction)
+2. [Programming Constitution](#programming)
+3. [Python Code Conventions](#python-code-conv)
+4. [Sources](#sources)
+5. [Automatic Code Conventions Checkers](#checkers)
 
-## 1. Introduction
+## 1. Introduction <a name="introduction"></a>
 This document is divided into two sub-guides:
 
 Programming constitution - contains thumb rules that actually affect program efficiency, correctness, or reusability. This part is also divided into two: the first one is unilingual, describing rules and tips which are relevant to any programming language, while the other part describes python specific rules and tips.
@@ -19,7 +19,7 @@ Python programming conventions - conventions that don't affect program correctne
 
 At the bottom of this document, there are several open-source libraries that automatically check python scripts according to all specified rules.
 
-## 2. Programming Constitution
+## 2. Programming Constitution <a name="programming"></a>
 
 ### 2.1. General rules
 Programming books are probably the longest books ever written. There are so many tips and tricks, design patterns, do’s and don'ts so we couldn’t really cover all. However, there are basic rules which can be described concisely and can guide us safely through the development process:
@@ -140,7 +140,7 @@ Do not make critical implementation decisions as long as it’s possible. This p
 If a class inherits from no other base classes, explicitly inherit from Object.
 * Avoid using the `+` and `+=` operators to accumulate a string within a loop. Since strings are immutable, this creates unnecessary temporary objects and results in quadratic rather than linear running time. Instead, add each substring to a list and ''.join the list after the loop terminates.
 
-## 3. Python Code Conventions
+## 3. Python Code Conventions <a name="python-code-conv"></a>
 
 ### 3.1. Why Conventions?
 
@@ -365,7 +365,7 @@ def make_complex(x, y):
     return {'x': x, 'y': y}
 ```
 
-## 4. Sources
+## 4. Sources <a name="sources"></a>
 
 * https://www.python.org/dev/peps/pep-0008/
 * https://docs.ckan.org/en/2.8/contributing/python.html
@@ -374,7 +374,7 @@ def make_complex(x, y):
 * https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 * https://www.datacamp.com/community/tutorials/pep8-tutorial-python-code
 
-## 5. Automatic Code Conventions Checkers
+## 5. Automatic Code Conventions Checkers <a name="checkers"></a>
 
 * https://pypi.org/project/pep8/ - python style guide checker
 * https://pypi.org/project/autopep8/ - autopep8 automatically formats Python code to conform to the PEP 8 style guide.
