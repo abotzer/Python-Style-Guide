@@ -178,40 +178,67 @@ If your class has public attributes, they should be documented in an attributes 
 
 TODO: add an example
 
-#### 3.2.3. Methods
+#### 3.2.3. Functions
 
-The docstring for a function or a method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can be called (all if applicable). Optional arguments should be indicated. It should be documented whether keyword arguments are part of the interface.
+The docstring for a function / method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can be called (all if applicable). Optional arguments should be indicated. It should be documented whether keyword arguments are part of the interface.
 
 After you’ve done writing your method, put a blank line after the function definition. Type three quotation marks and press the “enter” button. It will automatically generate a docstring skeleton, including the methods parameters and return values.
 
 Example:
 ```
-def my_method(first: np.array, second: Any, third: str = ‘value’) -> str:
-  """
-  My numpydoc description of a kind of very exhaustive numpydoc format docstring.
+def some_function(param1, param2=None):
+    """This is an example of a module level function.
 
-  Parameters
-  ----------
-  first : np.array
-      the 1st param name `first`
-  second : Any
-      the 2nd param
-  third :{'value', 'other'}, optional
-      the 3rd param, by default 'value'
+    Function parameters should be documented in the ``Parameters`` section.
+    The name of each parameter is required. The type and description of each
+    parameter is optional, but should be included if not obvious.
 
-  Returns
-  -------
-  str:
-      a value in a string
+    The format for a parameter is::
 
-  Raises
-  ------
-  KeyError
-      when a key error
-  OtherError
-      when another error
-  """
+        name : type
+            description
+
+            The description may span multiple lines. Following lines
+            should be indented to match the first line of the description.
+            The ": type" is optional.
+
+            Multiple paragraphs are supported in parameter
+            descriptions.
+
+    Parameters
+    ----------
+    param1 : int
+        The first parameter.
+    param2 : :obj:`str`, optional
+        The second parameter.
+
+    Returns
+    -------
+    bool
+        True if successful, False otherwise.
+
+        The return type is not optional. The ``Returns`` section may span
+        multiple lines and paragraphs. Following lines should be indented to
+        match the first line of the description.
+
+        The ``Returns`` section supports any reStructuredText formatting,
+        including literal blocks::
+
+            {
+                'param1': param1,
+                'param2': param2
+            }
+
+    Raises
+    ------
+    ValueError
+        If `param2` is equal to `param1`.
+    """
+    if param1 == param2:
+        raise ValueError('param1 may not be equal to param2')
+    return True
 ```
+[source](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy-style-python-docstrings)
 
 ### 3.3. Exceptions
 
@@ -300,8 +327,8 @@ Use it reasonably to separate between different logical parts of your code. Put 
 Use when the data structure is expected to be expanded. For example:
 ```
 FILES = [
-'Setup.cfg',
-'Tox.ini',
+  'Setup.cfg',
+  'Tox.ini',
 ]
 ```
 It’s better to put each file path in a different line because then it’s easier to track it on the version control system.
@@ -321,14 +348,14 @@ Be explicit. Don’t make your code ambiguous.
 Bad:
 ```
 def make_complex(*args):
-	    x, y = args
-	    return dict(**locals())
+    x, y = args
+    return dict(**locals())
 ```
 
 Good:
 ```
 def make_complex(x, y):
-	    return {'x': x, 'y': y}
+    return {'x': x, 'y': y}
 ```
 
 ## 4. Sources
