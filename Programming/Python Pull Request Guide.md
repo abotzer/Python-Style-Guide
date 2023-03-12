@@ -1,4 +1,4 @@
-# Pythno Pull Request (Code Review) Guide
+# Python Pull Request Guide
 
 This document is a comprehensive check-list for code reviewers and for the reviewed developers as a pre-check guide before submitting a PR. The document is focused on Python but also refers to documentation, configuration, and inline SQL query practices.
 
